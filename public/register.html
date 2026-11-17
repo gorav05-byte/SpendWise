@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register - SpendWise</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/auth.css">
+  <script src="/js/common.js"></script>
+</head>
+<body data-page="register">
+  <div class="auth-page">
+    <aside class="auth-side">
+      <a class="brand" href="/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg><span>SpendWise</span></a>
+      <div>
+        <h1>Start managing your money smarter.</h1>
+        <p>Create your free account in a few seconds.</p>
+        <ul class="auth-points">
+          <li>Passwords are hashed with bcrypt</li>
+          <li>Private records, visible only to you</li>
+          <li>Works offline on your own computer</li>
+        </ul>
+      </div>
+      <p class="auth-foot">SpendWise &middot; Personal Expense Management</p>
+    </aside>
+
+    <main class="auth-main">
+      <div class="auth-card">
+        <a class="brand mobile-brand" href="/"><span>SpendWise</span></a>
+        <h2>Create your account</h2>
+        <p class="sub">Fill in your details to get started.</p>
+
+        <form id="register-form" novalidate>
+          <div class="form-error" hidden></div>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Your full name" maxlength="60" required>
+            <small class="field-error" data-error-for="name"></small>
+          </div>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+            <small class="field-error" data-error-for="email"></small>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="password-wrap">
+              <input type="password" id="password" name="password" autocomplete="new-password" placeholder="At least 8 characters, letters and numbers" required>
+              <button type="button" class="toggle-pw" data-target="password">Show</button>
+            </div>
+            <small class="field-error" data-error-for="password"></small>
+          </div>
+          <div class="field">
+            <label for="confirmPassword">Confirm password</label>
+            <div class="password-wrap">
+              <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password" placeholder="Re-enter your password" required>
+              <button type="button" class="toggle-pw" data-target="confirmPassword">Show</button>
+            </div>
+            <small class="field-error" data-error-for="confirmPassword"></small>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Register</button>
+        </form>
+
+        <p class="switch">Already have an account? <a href="/login.html">Login</a></p>
+      </div>
+    </main>
+  </div>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - SpendWise</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/auth.css">
+  <script src="/js/common.js"></script>
+</head>
+<body data-page="login">
+  <div class="auth-page">
+    <aside class="auth-side">
+      <a class="brand" href="/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg><span>SpendWise</span></a>
+      <div>
+        <h1>Know where every rupee goes.</h1>
+        <p>Log in to see your balance, budgets and spending trends in one place.</p>
+        <ul class="auth-points">
+          <li>Track income and expenses</li>
+          <li>Budget warnings before you overspend</li>
+          <li>Charts and printable monthly reports</li>
+        </ul>
+      </div>
+      <p class="auth-foot">Your data stays on your computer.</p>
+    </aside>
+
+    <main class="auth-main">
+      <div class="auth-card">
+        <a class="brand mobile-brand" href="/"><span>SpendWise</span></a>
+        <h2>Welcome back</h2>
+        <p class="sub">Log in to your account to continue.</p>
+
+        <div class="form-success" id="notice" hidden></div>
+
+        <form id="login-form" novalidate>
+          <div class="form-error" hidden></div>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+            <small class="field-error" data-error-for="email"></small>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="password-wrap">
+              <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Your password" required>
+              <button type="button" class="toggle-pw" data-target="password">Show</button>
+            </div>
+            <small class="field-error" data-error-for="password"></small>
+          </div>
+          <div class="row-between">
+            <label class="checkbox"><input type="checkbox" id="remember" name="remember"> Remember me</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Login</button>
+        </form>
+
+        <p class="switch">New to SpendWise? <a href="/register.html">Create an account</a></p>
+      </div>
+    </main>
+  </div>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transactions - SpendWise</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script src="/js/common.js"></script>
+</head>
+<body data-page="transactions" data-title="Transactions" data-protected="true">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h2>Transaction History</h2>
+            <p class="muted">All your income and expenses in one place.</p>
+          </div>
+        </div>
+
+        <section class="card">
+          <div class="filter-grid">
+            <div class="field"><label for="filter-search">Search</label><input type="search" id="filter-search" placeholder="Title or description"></div>
+            <div class="field"><label for="filter-type">Type</label>
+              <select id="filter-type">
+                <option value="">Income &amp; expenses</option>
+                <option value="income">Income only</option>
+                <option value="expense">Expenses only</option>
+              </select>
+            </div>
+            <div class="field"><label for="filter-category">Category</label><select id="filter-category"></select></div>
+            <div class="field"><label for="filter-from">From date</label><input type="date" id="filter-from"></div>
+            <div class="field"><label for="filter-to">To date</label><input type="date" id="filter-to"></div>
+            <div class="field"><label for="filter-sort">Sort by</label>
+              <select id="filter-sort">
+                <option value="date:desc">Date (newest first)</option>
+                <option value="date:asc">Date (oldest first)</option>
+                <option value="amount:desc">Amount (high to low)</option>
+                <option value="amount:asc">Amount (low to high)</option>
+                <option value="title:asc">Title (A-Z)</option>
+                <option value="category:asc">Category (A-Z)</option>
+              </select>
+            </div>
+            <div class="field filter-actions"><button class="btn btn-ghost" id="btn-clear" type="button">Clear filters</button></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>Transactions</h3>
+            <div class="summary-inline">
+              <span id="summary-count">0 records</span>
+              <span>Income: <strong class="amount-income" id="summary-income">-</strong></span>
+              <span>Expenses: <strong class="amount-expense" id="summary-expense">-</strong></span>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Title</th><th>Type</th><th>Category</th><th>Date</th><th class="num">Amount</th><th>Description</th></tr></thead>
+              <tbody id="tbody"><tr><td colspan="6" class="empty-row">Loading...</td></tr></tbody>
+            </table>
+          </div>
+          <div class="pager" id="pager"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="/js/transactions.js"></script>
+</body>
+</html>
