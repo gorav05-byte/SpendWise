@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analytics - SpendWise</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script src="/js/common.js"></script>
+</head>
+<body data-page="analytics" data-title="Analytics" data-protected="true">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h2>Financial Analytics</h2>
+            <p class="muted" id="period-text">Understand your income, spending and savings.</p>
+          </div>
+          <div class="field" style="margin-bottom:0;min-width:180px">
+            <label for="period">Period</label>
+            <select id="period">
+              <option value="3">Last 3 months</option>
+              <option value="6">Last 6 months</option>
+              <option value="12" selected>Last 12 months</option>
+              <option value="all">All time</option>
+            </select>
+          </div>
+        </div>
+
+        <section class="stat-grid">
+          <article class="card stat income"><p class="stat-label">Total income</p><p class="stat-value" id="k-income">-</p><p class="stat-sub" id="k-income-sub"></p></article>
+          <article class="card stat expense"><p class="stat-label">Total expenses</p><p class="stat-value" id="k-expense">-</p><p class="stat-sub" id="k-expense-sub"></p></article>
+          <article class="card stat balance"><p class="stat-label">Savings</p><p class="stat-value" id="k-savings">-</p><p class="stat-sub">Income minus expenses</p></article>
+          <article class="card stat budget"><p class="stat-label">Savings rate</p><p class="stat-value" id="k-rate">-</p><p class="stat-sub">Share of income saved</p></article>
+        </section>
+
+        <section class="grid-2">
+          <article class="card">
+            <div class="card-head"><h3>Monthly financial trends</h3></div>
+            <div class="chart-box"><canvas id="chart-trend"></canvas><p class="chart-empty" hidden></p></div>
+          </article>
+          <article class="card">
+            <div class="card-head"><h3>Income vs expense comparison</h3></div>
+            <div class="chart-box"><canvas id="chart-compare"></canvas><p class="chart-empty" hidden></p></div>
+          </article>
+        </section>
+
+        <section class="grid-2">
+          <article class="card">
+            <div class="card-head"><h3>Category-wise expense analysis</h3></div>
+            <div class="chart-box short"><canvas id="chart-expcat"></canvas><p class="chart-empty" hidden></p></div>
+            <table class="legend-table" id="expcat-table"></table>
+          </article>
+          <article class="card">
+            <div class="card-head"><h3>Income sources</h3></div>
+            <div class="chart-box short"><canvas id="chart-inccat"></canvas><p class="chart-empty" hidden></p></div>
+            <table class="legend-table" id="inccat-table"></table>
+          </article>
+        </section>
+
+        <section class="grid-wide">
+          <article class="card">
+            <div class="card-head"><h3>Budget overview (this month)</h3><a href="/budgets.html">Manage</a></div>
+            <div class="chart-box short"><canvas id="chart-budget"></canvas><p class="chart-empty" hidden></p></div>
+          </article>
+          <article class="card">
+            <div class="card-head"><h3>Highlights</h3></div>
+            <ul class="insight-list" id="highlights"></ul>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="/vendor/chart.umd.js"></script>
+  <script src="/js/analytics.js"></script>
+</body>
+</html>

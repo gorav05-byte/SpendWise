@@ -1,0 +1,49 @@
+/* ==========================================================================
+   SpendWise - login, register and landing page
+   ========================================================================== */
+.auth-page { min-height: 100vh; display: grid; grid-template-columns: 1.05fr 1fr; }
+.auth-side {
+  background: linear-gradient(145deg, #4338ca 0%, #4f46e5 45%, #6366f1 100%);
+  color: #fff; padding: 56px; display: flex; flex-direction: column; justify-content: space-between;
+}
+.auth-side .brand { color: #fff; padding: 0; font-size: 1.5rem; }
+.auth-side .brand svg.icon { background: rgba(255, 255, 255, 0.2); }
+.auth-side h1 { font-size: 2.2rem; margin-bottom: 14px; }
+.auth-side p { opacity: 0.9; max-width: 440px; }
+.auth-points { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 12px; }
+.auth-points li { display: flex; gap: 10px; align-items: center; opacity: 0.95; }
+.auth-points li::before { content: "\2713"; display: inline-flex; width: 22px; height: 22px; border-radius: 50%; background: rgba(255, 255, 255, 0.22); align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; }
+.auth-foot { font-size: 0.8rem; opacity: 0.75; }
+
+.auth-main { display: flex; align-items: center; justify-content: center; padding: 32px 20px; }
+.auth-card { width: 100%; max-width: 420px; }
+.auth-card h2 { font-size: 1.7rem; margin-bottom: 6px; }
+.auth-card .sub { color: var(--muted); margin-bottom: 24px; }
+.auth-card .switch { text-align: center; margin-top: 18px; color: var(--muted); font-size: 0.92rem; }
+.auth-card .btn-primary { padding: 12px 18px; }
+.password-wrap { position: relative; }
+.password-wrap input { padding-right: 64px; }
+.toggle-pw { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: none; border: 0; color: var(--primary); font-weight: 700; font-size: 0.8rem; cursor: pointer; font-family: inherit; }
+.row-between { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.mobile-brand { display: none; }
+
+/* ---------- Landing page ---------- */
+.landing-nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 6vw; }
+.landing-nav .brand { padding: 0; }
+.landing-nav .links { display: flex; gap: 10px; }
+.hero { padding: 70px 6vw 50px; text-align: center; max-width: 900px; margin: 0 auto; }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 16px; }
+.hero h1 span { color: var(--primary); }
+.hero p { font-size: 1.1rem; color: var(--muted); max-width: 640px; margin: 0 auto 28px; }
+.hero .btn { padding: 13px 26px; font-size: 1rem; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; padding: 20px 6vw 70px; max-width: 1200px; margin: 0 auto; }
+.feature-grid .card { margin-bottom: 0; }
+.feature-grid h3 { margin-bottom: 6px; }
+.feature-grid p { color: var(--muted); font-size: 0.92rem; }
+.landing-foot { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 24px; border-top: 1px solid var(--border); }
+
+@media (max-width: 860px) {
+  .auth-page { grid-template-columns: 1fr; }
+  .auth-side { display: none; }
+  .mobile-brand { display: flex; margin-bottom: 18px; color: var(--text); padding: 0; }
+}

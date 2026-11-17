@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expenses - SpendWise</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script src="/js/common.js"></script>
+</head>
+<body data-page="expenses" data-title="Expenses" data-protected="true">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h2>Expenses</h2>
+            <p class="muted">Keep track of everything you spend.</p>
+          </div>
+          <button class="btn btn-primary" id="btn-add" type="button">+ Add Expense</button>
+        </div>
+
+        <section class="card">
+          <div class="filter-grid">
+            <div class="field"><label for="filter-search">Search</label><input type="search" id="filter-search" placeholder="Title or description"></div>
+            <div class="field"><label for="filter-category">Category</label><select id="filter-category"></select></div>
+            <div class="field"><label for="filter-payment">Payment method</label><select id="filter-payment"></select></div>
+            <div class="field"><label for="filter-from">From date</label><input type="date" id="filter-from"></div>
+            <div class="field"><label for="filter-to">To date</label><input type="date" id="filter-to"></div>
+            <div class="field"><label for="filter-sort">Sort by</label>
+              <select id="filter-sort">
+                <option value="date:desc">Date (newest first)</option>
+                <option value="date:asc">Date (oldest first)</option>
+                <option value="amount:desc">Amount (high to low)</option>
+                <option value="amount:asc">Amount (low to high)</option>
+                <option value="title:asc">Title (A-Z)</option>
+              </select>
+            </div>
+            <div class="field filter-actions"><button class="btn btn-ghost" id="btn-clear" type="button">Clear filters</button></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h3>All expenses</h3>
+            <div class="summary-inline"><span id="summary-count">0 records</span><span>Total:</span><strong class="amount-expense" id="summary-total">-</strong></div>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Title</th><th>Category</th><th>Payment</th><th>Date</th><th class="num">Amount</th><th class="actions-col">Actions</th></tr></thead>
+              <tbody id="tbody"><tr><td colspan="6" class="empty-row">Loading...</td></tr></tbody>
+            </table>
+          </div>
+          <div class="pager" id="pager"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <form id="form" novalidate>
+        <div class="modal-header"><h3 id="modal-title">Add Expense</h3><button type="button" class="icon-btn" id="btn-close" aria-label="Close">&times;</button></div>
+        <div class="modal-body">
+          <div class="form-error" hidden></div>
+          <div class="form-grid">
+            <div class="field full"><label for="f-title">Title</label><input type="text" id="f-title" name="title" maxlength="100" placeholder="e.g. Grocery shopping"><small class="field-error" data-error-for="title"></small></div>
+            <div class="field"><label for="f-amount">Amount</label><input type="number" id="f-amount" name="amount" min="0.01" step="0.01" placeholder="0.00"><small class="field-error" data-error-for="amount"></small></div>
+            <div class="field"><label for="f-date">Date</label><input type="date" id="f-date" name="date"><small class="field-error" data-error-for="date"></small></div>
+            <div class="field"><label for="f-category">Category</label><select id="f-category" name="category"></select><small class="field-error" data-error-for="category"></small></div>
+            <div class="field"><label for="f-payment">Payment method</label><select id="f-payment" name="payment_method"></select><small class="field-error" data-error-for="payment_method"></small></div>
+            <div class="field full"><label for="f-description">Description (optional)</label><textarea id="f-description" name="description" maxlength="500" placeholder="Any notes"></textarea><small class="field-error" data-error-for="description"></small></div>
+          </div>
+        </div>
+        <div class="modal-footer"><button type="button" class="btn btn-ghost" id="btn-cancel">Cancel</button><button type="submit" class="btn btn-primary" id="btn-save">Save expense</button></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/crud-page.js"></script>
+  <script src="/js/expenses.js"></script>
+</body>
+</html>

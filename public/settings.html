@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings - SpendWise</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script src="/js/common.js"></script>
+</head>
+<body data-page="settings" data-title="Settings" data-protected="true">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h2>Settings</h2>
+            <p class="muted">Manage your profile, password and preferences.</p>
+          </div>
+        </div>
+
+        <div class="settings-grid">
+          <section class="card">
+            <h3 class="section-title">User profile</h3>
+            <div class="profile-top">
+              <span class="avatar" id="p-avatar">?</span>
+              <div><strong id="p-name-display"></strong><p class="muted" id="p-email-display"></p></div>
+            </div>
+            <form id="profile-form" novalidate>
+              <div class="form-error" hidden></div>
+              <div class="field">
+                <label for="p-name">Full name</label>
+                <input type="text" id="p-name" name="name" maxlength="60" autocomplete="name">
+                <small class="field-error" data-error-for="name"></small>
+              </div>
+              <div class="field">
+                <label for="p-email">Email address</label>
+                <input type="email" id="p-email" disabled>
+              </div>
+              <div class="field">
+                <label for="p-since">Member since</label>
+                <input type="text" id="p-since" disabled>
+              </div>
+              <button type="submit" class="btn btn-primary" id="profile-btn">Update name</button>
+            </form>
+          </section>
+
+          <section class="card">
+            <h3 class="section-title">Change password</h3>
+            <form id="password-form" novalidate>
+              <div class="form-error" hidden></div>
+              <div class="field">
+                <label for="currentPassword">Current password</label>
+                <input type="password" id="currentPassword" name="currentPassword" autocomplete="current-password">
+                <small class="field-error" data-error-for="currentPassword"></small>
+              </div>
+              <div class="field">
+                <label for="newPassword">New password</label>
+                <input type="password" id="newPassword" name="newPassword" autocomplete="new-password" placeholder="At least 8 characters, letters and numbers">
+                <small class="field-error" data-error-for="newPassword"></small>
+              </div>
+              <div class="field">
+                <label for="confirmPassword">Confirm new password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password">
+                <small class="field-error" data-error-for="confirmPassword"></small>
+              </div>
+              <button type="submit" class="btn btn-primary" id="password-btn">Change password</button>
+            </form>
+          </section>
+
+          <section class="card span-2">
+            <h3 class="section-title">Preferences</h3>
+            <form id="prefs-form" novalidate>
+              <div class="form-error" hidden></div>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="s-currency">Currency</label>
+                  <select id="s-currency" name="currency">
+                    <option value="INR">INR - Indian Rupee</option>
+                    <option value="USD">USD - US Dollar</option>
+                    <option value="EUR">EUR - Euro</option>
+                  </select>
+                  <small class="field-error" data-error-for="currency"></small>
+                </div>
+                <div class="field">
+                  <label>Appearance</label>
+                  <div class="theme-options">
+                    <label class="theme-option"><input type="radio" name="theme" value="light"> Light mode</label>
+                    <label class="theme-option"><input type="radio" name="theme" value="dark"> Dark mode</label>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" id="prefs-btn">Save preferences</button>
+            </form>
+          </section>
+
+          <section class="card span-2">
+            <div class="card-head" style="margin-bottom:0">
+              <div><h3>Logout</h3><p class="muted">Sign out of SpendWise on this device.</p></div>
+              <button class="btn btn-danger-soft" id="settings-logout" type="button">Logout</button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="/js/settings.js"></script>
+</body>
+</html>

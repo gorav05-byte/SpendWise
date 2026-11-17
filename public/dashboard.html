@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - SpendWise</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script src="/js/common.js"></script>
+</head>
+<body data-page="dashboard" data-title="Dashboard" data-protected="true">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="page-head">
+          <div>
+            <h2 id="welcome">Welcome back</h2>
+            <p class="muted" id="today-text"></p>
+          </div>
+          <div class="head-actions">
+            <a class="btn btn-primary" href="/income.html">+ Add Income</a>
+            <a class="btn btn-danger-soft" href="/expenses.html">+ Add Expense</a>
+          </div>
+        </div>
+
+        <div id="alerts"></div>
+
+        <section class="stat-grid">
+          <article class="card stat income">
+            <p class="stat-label">Total Income</p>
+            <p class="stat-value" id="stat-income">-</p>
+            <p class="stat-sub">All time</p>
+          </article>
+          <article class="card stat expense">
+            <p class="stat-label">Total Expenses</p>
+            <p class="stat-value" id="stat-expense">-</p>
+            <p class="stat-sub">All time</p>
+          </article>
+          <article class="card stat balance">
+            <p class="stat-label">Available Balance</p>
+            <p class="stat-value" id="stat-balance">-</p>
+            <p class="stat-sub">Income minus expenses</p>
+          </article>
+          <article class="card stat budget">
+            <p class="stat-label">Monthly Budget</p>
+            <p class="stat-value" id="stat-budget">-</p>
+            <p class="stat-sub" id="stat-budget-sub"></p>
+            <div class="progress" id="stat-budget-progress" hidden><div class="progress-bar" id="stat-budget-bar"></div></div>
+          </article>
+        </section>
+
+        <section class="grid-wide">
+          <article class="card">
+            <div class="card-head"><h3>Income vs Expenses (last 6 months)</h3></div>
+            <div class="chart-box"><canvas id="chart-trend"></canvas><p class="chart-empty" hidden></p></div>
+          </article>
+          <article class="card">
+            <div class="card-head"><h3>Expense categories (this month)</h3></div>
+            <div class="chart-box"><canvas id="chart-category"></canvas><p class="chart-empty" hidden></p></div>
+          </article>
+        </section>
+
+        <section class="grid-2">
+          <article class="card">
+            <div class="card-head"><h3>Savings overview</h3></div>
+            <p class="stat-label">Saved this month</p>
+            <p class="savings-big" id="savings-month">-</p>
+            <div class="rate-row"><span>Savings rate</span><strong id="savings-rate">0%</strong></div>
+            <div class="progress"><div class="progress-bar primary" id="savings-bar"></div></div>
+            <ul class="kv-list" style="margin-top:14px">
+              <li><span>Total saved (all time)</span><strong id="savings-total">-</strong></li>
+              <li><span>Saved last month</span><strong id="savings-prev">-</strong></li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="card-head"><h3>Monthly financial summary</h3><span class="badge" id="summary-month"></span></div>
+            <ul class="kv-list">
+              <li><span>Income</span><strong class="amount-income" id="sum-income">-</strong></li>
+              <li><span>Expenses</span><strong class="amount-expense" id="sum-expense">-</strong></li>
+              <li><span>Net savings</span><strong id="sum-savings">-</strong></li>
+              <li><span>Transactions</span><strong id="sum-count">-</strong></li>
+              <li><span>Spending vs last month</span><strong id="sum-change">-</strong></li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="grid-wide">
+          <article class="card">
+            <div class="card-head"><h3>Recent transactions</h3><a href="/transactions.html">View all</a></div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th>Title</th><th>Category</th><th>Date</th><th class="num">Amount</th></tr></thead>
+                <tbody id="recent-body"><tr><td colspan="4" class="empty-row">Loading...</td></tr></tbody>
+              </table>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-head"><h3>Recent activity</h3></div>
+            <ul class="activity" id="activity-list"><li class="muted">Loading...</li></ul>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="/vendor/chart.umd.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
